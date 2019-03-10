@@ -2,6 +2,7 @@ package app.doamin.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.Set;
 
@@ -14,6 +15,7 @@ public class Customer extends BaseEntity {
     private String creditCardNumber;
     private Set<Sale> sales;
 
+    @OneToMany(targetEntity = Sale.class, mappedBy = "customer")
     public Set<Sale> getSales() {
         return sales;
     }

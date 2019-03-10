@@ -2,6 +2,7 @@ package app.doamin.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.Set;
 
@@ -24,6 +25,7 @@ public class StoreLocation extends BaseEntity {
         this.locationName = locationName;
     }
 
+    @OneToMany(targetEntity = Sale.class,mappedBy = "storeLocation")
     public Set<Sale> getSales() {
         return sales;
     }
